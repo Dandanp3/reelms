@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
-import Link from "Next/link"
+import Link from "next/link"
 import { useTranslation } from "@/lib/i18n/context"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
@@ -42,15 +42,28 @@ export function HeroSection() {
                         {t("home.heroTitle")}
                     </motion.h1>
 
-                    <motion.p>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                        className="text-lg text-muted-foreground text-pretty"
+                    >
                         {t("home.heroSubtitle")}
                     </motion.p>
 
-                    <motion.div>
-                        <button>
-                            {t("home.getStarted")}
-                            <ArrowRight/>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{delay: 0.4, duration: 0.6 }}
+                        className="flex items-center justify-center gap-3"
+                    >
+                        <button className="gap-2">
+                            <Link href="/">
+                                {t("home.getStarted")}
+                                <ArrowRight/>
+                            </Link>
                         </button>
+
                         <button>
                             {t("home.exploreCommunity")}
                         </button>
